@@ -1,4 +1,4 @@
-# NEXUS — Offline-First AI Multi-Emergency Decision Intelligence Platform
+# AI-Powered-Respiratory-Health-Intelligence-Early-Risk-Detection-Platform
 
 > **Hazard-Agnostic Emergency Decision-Intelligence Platform**  
 > Resilient, offline-first operational continuity, dynamic routing, resource optimization, and human-in-the-loop decision support under critical infrastructure failure across 12 disaster domains.
