@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus.platform/schemas/recommendation.schema.json",
+  "title": "Recommendation",
+  "description": "Canonical contract for human-in-the-loop decision-support recommendations.",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "recommendation_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "priority": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "action": {
+      "type": "string",
+      "enum": [
+        "EVACUATE_ZONE",
+        "REROUTE_CONVOY",
+        "DISPATCH_RESCUE",
+        "DIVERT_AMBULANCES",
+        "OPEN_SHELTER",
+        "PREPOSITION_RESOURCES",
+        "CLOSE_ROAD"
+      ]
+    },
+    "target": {
+      "type": "object",
+      "properties": {
+        "entity_type": {
+          "type": "string",
+          "enum": ["zone", "road", "hospital", "shelter", "rescue_team"]
+        },
+        "entity_id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": ["entity_type", "entity_id"],
+      "additionalProperties": false
+    },
+    "reasoning": {
+      "type": "string"
+    },
+    "factors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "weight": {
+            "type": "number"
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "required": ["name", "weight"],
+        "additionalProperties": false
+      }
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Calibrated model confidence score between 0.0 and 1.0 (never fabricated)."
+    },
+    "uncertainty": {
+      "type": "object",
+      "properties": {
+        "lower_bound": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "upper_bound": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "metric": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "source_state_version": {
+      "type": "string"
+    },
+    "requires_human_approval": {
+      "type": "boolean",
+      "const": true
+    },
+    "approval_status": {
+      "type": "string",
+      "enum": ["PENDING", "APPROVED", "REJECTED", "EXPIRED"]
+    },
+    "approved_by": {
+      "type": "string"
+    },
+    "approved_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "schema_version",
+    "recommendation_id",
+    "created_at",
+    "priority",
+    "action",
+    "target",
+    "reasoning",
+    "factors",
+    "source_state_version",
+    "requires_human_approval",
+    "approval_status"
+  ],
+  "additionalProperties": false
+}

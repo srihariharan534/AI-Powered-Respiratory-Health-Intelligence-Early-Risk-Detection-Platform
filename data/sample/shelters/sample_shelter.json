@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0.0",
+  "shelter_id": "DEMO-SHELT-001",
+  "name": "Community Relief Center North",
+  "location": {
+    "type": "Point",
+    "coordinates": [80.2550, 13.0950]
+  },
+  "status": "OPEN",
+  "accessibility": "ALL_VEHICLES",
+  "capacity": 500,
+  "available_capacity": 210,
+  "has_power_backup": true,
+  "has_potable_water": true,
+  "last_updated": "2026-09-19T14:15:00Z",
+  "source": "synthetic_demo"
+}

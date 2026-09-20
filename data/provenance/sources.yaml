@@ -1,0 +1,72 @@
+sources:
+  - id: osm
+    name: OpenStreetMap
+    type: geospatial
+    provider: OpenStreetMap contributors
+    url: https://www.openstreetmap.org
+    description: Vector road network topology, bridges, highway hierarchies, and baseline infrastructure extracted via Overpass API.
+    license: ODbL-1.0
+    status: active
+    usage: Dynamic emergency routing, road graph extraction, and GIS base mapping.
+
+  - id: srtm_dem
+    name: NASA SRTM Digital Elevation Model
+    type: elevation
+    provider: NASA / USGS
+    url: https://www.earthdata.nasa.gov
+    description: 30m resolution digital elevation model for drainage basin and slope determination.
+    license: Public Domain / NASA Open Data Policy
+    status: planned
+    usage: Topographic flow accumulation and flood risk modeling.
+
+  - id: historical_flood_catalog
+    name: Historical District Flood Inundation Catalog
+    type: flood_history
+    provider: State Disaster Management Authority / Public Records
+    url: https://disastermanagement.example.gov
+    description: Historical flood inundation footprints, historical rainfall peaks, and breach records.
+    license: Government Open Data License
+    status: planned
+    usage: Baseline risk training, validation, and historical backtesting.
+
+  - id: synthetic_demo_suite
+    name: NEXUS Synthetic Judge Scenario Suite
+    type: simulated_scenario
+    provider: NEXUS Core Engineering Team
+    url: internal://demo/scenarios
+    description: Deterministic scenario triggers including bridge failure, water depth increments, and triage saturation.
+    license: Apache-2.0
+    status: active
+    usage: Deterministic hackathon demonstrations, contract tests, and offline resilience evaluation.
+
+  - id: health_registry
+    name: District Health & Hospital Registry
+    type: healthcare_facilities
+    provider: State Health Mission / District Medical Services
+    url: https://healthregistry.example.gov
+    description: Official registry of tertiary care hospitals, trauma centers, bed capacity, and emergency care availability.
+    license: Government Open Data License
+    status: planned
+    usage: Hospital capacity, emergency triage, ICU bed tracking, and operational facility coordination.
+
+  - id: district_registry
+    name: District Evacuation Shelter & Relief Camp Directory
+    type: shelter_facilities
+    provider: District Revenue & Disaster Management Department
+    url: https://districtshelters.example.gov
+    description: Designated Cyclone / Flood evacuation relief camps, community centers, backup generator, and potable water facilities.
+    license: Government Open Data License
+    status: planned
+    usage: Evacuation shelter capacity, occupancy tracking, power status, and relief camp coordination.
+
+  - id: baseline_risk_training_catalog
+    name: Baseline Operational Flood Risk Training Catalog
+    type: risk_observations
+    provider: NEXUS Simulation & Reference Synthesis Engine
+    url: internal://ml/risk_model/data/reference_flood_risk_dataset.csv
+    description: Deterministic reference dataset recording environmental predictors (rainfall, elevation, proximity, slope) and operational disruption labels for baseline model evaluation.
+    license: Apache-2.0
+    status: active
+    usage: Phase 17 baseline logistic regression training, calibration benchmarks, and Phase 18 comparative evaluations.
+
+

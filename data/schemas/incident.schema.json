@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus.platform/schemas/incident.schema.json",
+  "title": "Incident",
+  "description": "Canonical contract for an emergency incident or field observation.",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "incident_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "FLOOD_INUNDATION",
+        "ROAD_BLOCKED",
+        "BRIDGE_FAILURE",
+        "EMBANKMENT_BREACH",
+        "MEDICAL_EMERGENCY",
+        "TRAPPED_PERSONS",
+        "SHELTER_NEEDED",
+        "RESOURCE_REQUEST"
+      ]
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["OPEN", "ACKNOWLEDGED", "IN_PROGRESS", "RESOLVED", "CANCELLED"]
+    },
+    "priority": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "Point"
+        },
+        "coordinates": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "prefixItems": [
+            {
+              "type": "number",
+              "minimum": -180.0,
+              "maximum": 180.0,
+              "description": "Longitude in WGS 84 (EPSG:4326)"
+            },
+            {
+              "type": "number",
+              "minimum": -90.0,
+              "maximum": 90.0,
+              "description": "Latitude in WGS 84 (EPSG:4326)"
+            }
+          ]
+        }
+      },
+      "required": ["type", "coordinates"],
+      "additionalProperties": false
+    },
+    "description": {
+      "type": "string"
+    },
+    "reported_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reported_by": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "field_officer",
+        "sms",
+        "manual_entry",
+        "simulator",
+        "osm",
+        "historical_flood_dataset",
+        "synthetic_demo"
+      ]
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "water_depth_cm": {
+          "type": "number",
+          "minimum": 0.0
+        },
+        "trapped_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "incident_id",
+    "event_type",
+    "severity",
+    "status",
+    "priority",
+    "location",
+    "description",
+    "reported_at",
+    "reported_by",
+    "source"
+  ],
+  "additionalProperties": false
+}

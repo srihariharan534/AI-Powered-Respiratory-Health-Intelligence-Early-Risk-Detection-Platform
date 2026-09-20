@@ -1,0 +1,85 @@
+transformations:
+  - id: osm-road-normalization
+    source: osm
+    input_format: overpass_json
+    output_format: canonical_road_contract
+    operation: parse_and_normalize
+    script: geospatial/osm/roads/normalizer.py
+    description: Parse highway tags, normalize speed limits and accessibility, project to EPSG:4326, and output validated Road contracts.
+    status: active
+
+  - id: osm-road-graph-builder
+    source: osm
+    input_format: canonical_road_contract
+    output_format: networkx_multidigraph
+    operation: topological_segmentation
+    script: geospatial/osm/roads/graph_builder.py
+    description: Construct directed multigraph preserving one-way flow, bridge markers, and geodesic edge lengths.
+    status: active
+
+  - id: dem-elevation-contours
+    source: srtm_dem
+    input_format: geotiff
+    output_format: geojson
+    operation: slope_and_flow_accumulation
+    script: scripts/data/process_dem.py
+    description: Generate drainage basin slopes and flow accumulation rasters for flood model features.
+    status: planned
+
+  - id: sms-report-parser
+    source: sms
+    input_format: compact_ascii_sms
+    output_format: canonical_sms_contract
+    operation: tokenize_and_validate
+    script: services/sms/parser.py
+    description: Parse space-delimited emergency field SMS strings into canonical JSON contracts.
+    status: planned
+
+  - id: hospital-registry-ingestion
+    source: health_registry
+    input_format: csv_registry
+    output_format: canonical_hospital_contract
+    operation: normalize_and_validate
+    script: scripts/data/ingest_facilities.py
+    description: Ingest registered healthcare facilities, project WGS84 point coordinates, normalize bed capacities, and validate against canonical Hospital JSON schema.
+    status: planned
+
+  - id: shelter-directory-ingestion
+    source: district_registry
+    input_format: json_directory
+    output_format: canonical_shelter_contract
+    operation: normalize_and_validate
+    script: scripts/data/ingest_facilities.py
+    description: Ingest designated cyclone and flood relief centers, parse backup power / potable water status, and validate against canonical Shelter JSON schema.
+    status: planned
+
+  - id: baseline-risk-preprocessing
+    source: baseline_risk_training_catalog
+    input_format: tabular_csv
+    output_format: standardized_numpy_matrix
+    operation: median_imputation_and_standard_scaling
+    script: ml/risk_model/preprocessing.py
+    description: Impute missing numerical features with training medians and scale predictors to zero-mean unit-variance for deterministic logistic regression fitting.
+    status: active
+
+  - id: gradient-boosting-training
+    source: baseline_risk_training_catalog
+    input_format: standardized_numpy_matrix
+    output_format: trained_tree_ensemble
+    operation: gradient_boosted_decision_trees
+    script: scripts/train/train_gradient_boosting.py
+    description: Train 100 shallow decision trees on standardized predictors, evaluating Gini feature importances and probability calibration.
+    status: active
+
+  - id: explainability-evaluation
+    source: baseline_risk_training_catalog
+    input_format: trained_models_and_validation_data
+    output_format: attribution_calibration_and_counterfactual_tables
+    operation: attribution_and_calibration_evaluation
+    script: scripts/evaluate/evaluate_explainability.py
+    description: Generate global feature importance rankings, evaluate Platt scaling on validation splits, and search for bounded counterfactual sensitivities.
+    status: active
+
+
+
+

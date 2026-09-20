@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nexus-platform"
+version = "0.1.0"
+description = "Offline-First AI Flood Response & Emergency Decision Platform"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "NEXUS Core Engineering Team"}
+]
+keywords = [
+    "flood-response",
+    "emergency-decision-intelligence",
+    "digital-twin",
+    "offline-first",
+    "postgis",
+    "postgresql",
+    "geospatial"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Topic :: Scientific/Engineering :: GIS",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12"
+]
+dependencies = [
+    "sqlalchemy>=2.0.0",
+    "psycopg2-binary>=2.9.0",
+    "geoalchemy2>=0.14.0",
+    "alembic>=1.13.0",
+    "shapely>=2.0.0",
+    "pyproj>=3.6.0",
+    "networkx>=3.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.3.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = [
+    "digital_twin*",
+    "ml*",
+    "geospatial*",
+    "backtesting*",
+    "services*"
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+pythonpath = ["."]

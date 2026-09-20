@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "incident_id": "DEMO-INC-001",
+  "event_type": "FLOOD_INUNDATION",
+  "severity": "CRITICAL",
+  "status": "OPEN",
+  "priority": 1,
+  "location": {
+    "type": "Point",
+    "coordinates": [80.2707, 13.0827]
+  },
+  "description": "SAMPLE - NOT LIVE EVENT: Severe flash flood inundation reported near central bridge crossing. Water depth reaching 85cm.",
+  "reported_at": "2026-09-19T14:30:00Z",
+  "reported_by": "DEMO-OFFICER-42",
+  "source": "synthetic_demo",
+  "evidence": {
+    "water_depth_cm": 85.0,
+    "trapped_count": 12,
+    "notes": "Water rising at 5cm per 15 minutes. Heavy clearance vehicle required."
+  }
+}

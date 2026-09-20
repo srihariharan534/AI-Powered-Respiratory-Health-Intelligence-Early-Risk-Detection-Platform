@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0.0",
+  "hospital_id": "DEMO-HOSP-001",
+  "name": "District General Trauma Hospital",
+  "location": {
+    "type": "Point",
+    "coordinates": [80.2600, 13.0900]
+  },
+  "status": "OPERATIONAL",
+  "accessibility": "EMERGENCY_ONLY",
+  "capacity": 250,
+  "available_capacity": 34,
+  "emergency_available": true,
+  "icu_available": 6,
+  "last_updated": "2026-09-19T14:20:00Z",
+  "source": "synthetic_demo"
+}

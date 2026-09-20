@@ -1,0 +1,26 @@
+{
+  "name": "nexus-platform",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Offline-First AI Flood Response & Emergency Decision Platform",
+  "scripts": {
+    "dev": "echo \"Apps will be initialized in subsequent phases (Phase 12, Phase 22)\"",
+    "build": "echo \"Build pipeline will be initialized with apps\"",
+    "lint": "echo \"Frontend linting initialized\"",
+    "test": "echo \"Frontend test suite initialized\""
+  },
+  "workspaces": [
+    "apps/*"
+  ],
+  "keywords": [
+    "emergency-management",
+    "disaster-response",
+    "flood-risk",
+    "digital-twin",
+    "offline-first",
+    "pwa",
+    "decision-intelligence"
+  ],
+  "author": "NEXUS Core Team",
+  "license": "Apache-2.0"
+}

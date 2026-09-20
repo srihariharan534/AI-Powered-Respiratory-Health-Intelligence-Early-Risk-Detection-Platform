@@ -1,0 +1,83 @@
+/* NEXUS Field PWA Theme - Mobile-First Emergency Touch Palette */
+:root {
+  --bg-primary: #07090e;
+  --bg-surface: #0e131f;
+  --bg-card: #141c2e;
+  --bg-card-hover: #1c263d;
+  --border-subtle: #1e293b;
+  --border-strong: #334155;
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+
+  --color-brand: #3b82f6;
+  --color-brand-hover: #2563eb;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+
+  --min-touch-target: 48px;
+  --header-height: 54px;
+  --nav-height: 60px;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  user-select: none;
+  overscroll-behavior-y: none;
+  letter-spacing: -0.01em;
+}
+
+button {
+  font-family: inherit;
+  min-height: var(--min-touch-target);
+  border-radius: 8px;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+input, select, textarea {
+  font-family: inherit;
+  font-size: 0.95rem;
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+input:focus, select:focus, textarea:focus, button:focus {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+.field-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-bottom: calc(var(--nav-height) + 0.75rem);
+  background-color: var(--bg-primary);
+}
+
+.screen-content {
+  flex: 1;
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}

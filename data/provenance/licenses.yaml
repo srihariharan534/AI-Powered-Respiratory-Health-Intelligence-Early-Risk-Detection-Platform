@@ -1,0 +1,51 @@
+licenses:
+  - source_id: osm
+    license: Open Database License (ODbL) 1.0
+    attribution_required: true
+    redistribution_allowed: true
+    notes: Requires attribution "© OpenStreetMap contributors". Derived spatial graphs may be distributed under ODbL.
+    status: verified
+
+  - source_id: srtm_dem
+    license: NASA Open Data Policy / US Public Domain
+    attribution_required: true
+    redistribution_allowed: true
+    notes: Freely accessible for research and operational flood modeling.
+    status: verified
+
+  - source_id: historical_flood_catalog
+    license: Open Government Data License
+    attribution_required: true
+    redistribution_allowed: true
+    notes: Administrative boundary and historical gauge records for emergency planning.
+    status: unverified
+
+  - source_id: synthetic_demo_suite
+    license: Apache License 2.0
+    attribution_required: false
+    redistribution_allowed: true
+    notes: Internal deterministic demo datasets crafted strictly for offline test suites and hackathon judge evaluation.
+    status: verified
+
+  - source_id: health_registry
+    license: Open Government Data License
+    attribution_required: true
+    redistribution_allowed: false
+    notes: Official health facility inventory data for authorized disaster response coordination.
+    status: planned
+
+  - source_id: district_registry
+    license: Open Government Data License
+    attribution_required: true
+    redistribution_allowed: false
+    notes: Designated relief shelter registry for operational civil protection coordination.
+    status: planned
+
+  - source_id: baseline_risk_training_catalog
+    license: Apache License 2.0
+    attribution_required: false
+    redistribution_allowed: true
+    notes: Synthetic reference scenario observation records generated deterministically for offline baseline machine learning benchmarks.
+    status: verified
+
+

@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "message_id": "DEMO-SMS-001",
+  "received_at": "2026-09-19T14:42:00Z",
+  "sender_reference": "ANON-DEV-SEC-091",
+  "raw_message": "FLOOD ROAD DEMO-ROAD-101 BLOCKED CRITICAL 80.2707 13.0827",
+  "event_type": "FLOOD",
+  "entity_id": "DEMO-ROAD-101",
+  "status": "BLOCKED",
+  "severity": "CRITICAL",
+  "longitude": 80.2707,
+  "latitude": 13.0827,
+  "source": "simulated_sms_demo"
+}

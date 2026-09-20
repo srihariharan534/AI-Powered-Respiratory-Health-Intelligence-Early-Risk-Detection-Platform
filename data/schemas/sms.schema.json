@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nexus.platform/schemas/sms.schema.json",
+  "title": "SMSMessage",
+  "description": "Canonical contract for structured emergency SMS messages and parsed reports.",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "message_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "received_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "sender_reference": {
+      "type": "string",
+      "description": "Anonymized or hashed sender identifier."
+    },
+    "raw_message": {
+      "type": "string",
+      "maxLength": 160
+    },
+    "event_type": {
+      "type": "string",
+      "enum": ["FLOOD", "ROAD", "BRIDGE", "MEDICAL", "SHELTER", "RESCUE"]
+    },
+    "entity_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["OPEN", "BLOCKED", "RESTRICTED", "FULL", "DAMAGED", "CRITICAL"]
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"]
+    },
+    "longitude": {
+      "type": "number",
+      "minimum": -180.0,
+      "maximum": 180.0
+    },
+    "latitude": {
+      "type": "number",
+      "minimum": -90.0,
+      "maximum": 90.0
+    },
+    "source": {
+      "type": "string",
+      "enum": ["sms", "simulated_sms_demo"]
+    }
+  },
+  "required": [
+    "schema_version",
+    "message_id",
+    "received_at",
+    "sender_reference",
+    "raw_message",
+    "event_type",
+    "status",
+    "severity",
+    "longitude",
+    "latitude",
+    "source"
+  ],
+  "additionalProperties": false
+}

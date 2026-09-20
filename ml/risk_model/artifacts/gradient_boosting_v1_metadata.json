@@ -1,0 +1,98 @@
+{
+  "model_id": "NEXUS-RISK-GB-001",
+  "model_version": "gradient-boosting-v1",
+  "algorithm": "Gradient Boosting Classifier (100 estimators, max_depth=3, lr=0.05)",
+  "target_name": "operational_flood_risk",
+  "target_definition": "Binary operational disruption/inundation >= 15cm (0=nominal, 1=risk)",
+  "training_dataset_id": "reference_flood_risk_dataset_v1",
+  "dataset_mode": "SYNTHETIC_SCENARIO_OBSERVATION",
+  "dataset_fingerprint": "0094e2f4a251cf1ac24e560e534f76b34ebb8fb9d56923c2bc0c3203dc5ee66c",
+  "feature_names": [
+    "rainfall_mm_1h",
+    "rainfall_mm_24h",
+    "elevation_m",
+    "distance_to_river_m",
+    "slope_degrees",
+    "road_density_km",
+    "infrastructure_exposure_count"
+  ],
+  "coefficients": null,
+  "intercept": null,
+  "feature_importances": {
+    "rainfall_mm_1h": 0.0495,
+    "rainfall_mm_24h": 0.4438,
+    "elevation_m": 0.2086,
+    "distance_to_river_m": 0.2335,
+    "slope_degrees": 0.0374,
+    "road_density_km": 0.0224,
+    "infrastructure_exposure_count": 0.0047
+  },
+  "hyperparameters": {
+    "n_estimators": 100,
+    "learning_rate": 0.05,
+    "max_depth": 3,
+    "min_samples_split": 4,
+    "min_samples_leaf": 2,
+    "subsample": 0.85,
+    "random_state": 42
+  },
+  "metrics": {
+    "accuracy": 0.8933,
+    "precision": 1.0,
+    "recall": 0.5294,
+    "f1_score": 0.6923,
+    "roc_auc": 0.9594,
+    "pr_auc": 0.8962,
+    "brier_score": 0.0772,
+    "expected_calibration_error": 0.1958,
+    "confusion_matrix": {
+      "true_positive": 9,
+      "true_negative": 58,
+      "false_positive": 0,
+      "false_negative": 8
+    },
+    "calibration_curve": [
+      {
+        "bin_predicted": 0.0229,
+        "bin_actual": 0.0545
+      },
+      {
+        "bin_predicted": 0.3091,
+        "bin_actual": 0.4
+      },
+      {
+        "bin_predicted": 0.4974,
+        "bin_actual": 1.0
+      },
+      {
+        "bin_predicted": 0.6926,
+        "bin_actual": 1.0
+      },
+      {
+        "bin_predicted": 0.9532,
+        "bin_actual": 1.0
+      }
+    ],
+    "sample_count": 75,
+    "positive_rate": 0.2267,
+    "mean_latency_ms": 3.204,
+    "median_latency_ms": 2.492,
+    "p95_latency_ms": 6.301,
+    "train_duration_sec": 0.137
+  },
+  "comparison_to_baseline": {
+    "baseline_model_version": "baseline-logistic-regression-v1",
+    "baseline_accuracy": 0.9467,
+    "baseline_f1": 0.8667,
+    "baseline_roc_auc": 0.9888,
+    "baseline_brier_score": 0.0412
+  },
+  "training_timestamp": "2026-09-20T09:49:40.232567+00:00",
+  "random_seed": 42,
+  "limitations": [
+    "Non-linear decision tree ensemble; leaves are clamped to empirical partition ranges.",
+    "Feature importances indicate predictive contribution in tree splits, NOT physical causality.",
+    "Dataset is based on synthetic scenario observations; field sensor validation required before operational deployment.",
+    "Does NOT decide evacuation priority, road closures, or dispatch rescue teams."
+  ]
+}

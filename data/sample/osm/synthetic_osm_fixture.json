@@ -1,0 +1,79 @@
+{
+  "elements": [
+    {
+      "type": "node",
+      "id": 1001,
+      "lat": 13.0810,
+      "lon": 80.2650,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 1002,
+      "lat": 13.0827,
+      "lon": 80.2707,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 1003,
+      "lat": 13.0850,
+      "lon": 80.2750,
+      "tags": {}
+    },
+    {
+      "type": "node",
+      "id": 1004,
+      "lat": 13.0780,
+      "lon": 80.2707,
+      "tags": {}
+    },
+    {
+      "type": "way",
+      "id": 2001,
+      "nodes": [1001, 1002],
+      "tags": {
+        "highway": "primary",
+        "name": "West Arterial Road",
+        "maxspeed": "50 km/h",
+        "lanes": "2",
+        "oneway": "no"
+      }
+    },
+    {
+      "type": "way",
+      "id": 2002,
+      "nodes": [1002, 1003],
+      "tags": {
+        "highway": "primary",
+        "name": "Central River Crossing Bridge",
+        "bridge": "yes",
+        "layer": "1",
+        "maxspeed": "40",
+        "lanes": "2",
+        "oneway": "no"
+      }
+    },
+    {
+      "type": "way",
+      "id": 2003,
+      "nodes": [1002, 1004],
+      "tags": {
+        "highway": "secondary",
+        "name": "Southbound One-Way Evacuation Spur",
+        "oneway": "yes",
+        "access": "emergency"
+      }
+    },
+    {
+      "type": "way",
+      "id": 2004,
+      "nodes": [1004, 1001],
+      "tags": {
+        "highway": "service",
+        "name": "Restricted Compound Access",
+        "access": "private"
+      }
+    }
+  ]
+}

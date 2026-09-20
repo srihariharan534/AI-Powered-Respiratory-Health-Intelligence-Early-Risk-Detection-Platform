@@ -1,0 +1,97 @@
+{
+  "model_id": "NEXUS-RISK-BASELINE-001",
+  "model_version": "baseline-logistic-regression-v1",
+  "algorithm": "Logistic Regression (L2 Regularized, C=1.0, Standardized Features)",
+  "target_name": "operational_flood_risk",
+  "target_definition": "Binary operational disruption/inundation >= 15cm (0=nominal, 1=risk)",
+  "training_dataset_id": "reference_flood_risk_dataset_v1",
+  "dataset_mode": "SYNTHETIC_SCENARIO_OBSERVATION",
+  "dataset_fingerprint": null,
+  "feature_names": [
+    "rainfall_mm_1h",
+    "rainfall_mm_24h",
+    "elevation_m",
+    "distance_to_river_m",
+    "slope_degrees",
+    "road_density_km",
+    "infrastructure_exposure_count"
+  ],
+  "coefficients": {
+    "rainfall_mm_1h": 1.0334588106289495,
+    "rainfall_mm_24h": 2.4646622124823097,
+    "elevation_m": -2.5844193212835855,
+    "distance_to_river_m": -2.175883732807175,
+    "slope_degrees": -0.4659616437208666,
+    "road_density_km": 0.6122990184818881,
+    "infrastructure_exposure_count": 0.22212084649830513
+  },
+  "intercept": -4.371588617737134,
+  "feature_importances": null,
+  "hyperparameters": null,
+  "metrics": {
+    "accuracy": 0.9467,
+    "precision": 1.0,
+    "recall": 0.7647,
+    "f1_score": 0.8667,
+    "roc_auc": 0.9888,
+    "pr_auc": 0.9679,
+    "brier_score": 0.0412,
+    "expected_calibration_error": 0.1016,
+    "confusion_matrix": {
+      "true_positive": 13,
+      "true_negative": 58,
+      "false_positive": 0,
+      "false_negative": 4
+    },
+    "calibration_curve": [
+      {
+        "bin_predicted": 0.0249,
+        "bin_actual": 0.0182
+      },
+      {
+        "bin_predicted": 0.3047,
+        "bin_actual": 0.4
+      },
+      {
+        "bin_predicted": 0.4334,
+        "bin_actual": 0.5
+      },
+      {
+        "bin_predicted": 0.7151,
+        "bin_actual": 1.0
+      },
+      {
+        "bin_predicted": 0.9455,
+        "bin_actual": 1.0
+      }
+    ],
+    "sample_count": 75,
+    "positive_rate": 0.2267
+  },
+  "comparison_to_baseline": {
+    "baseline_type": "majority_class",
+    "predicted_constant_class": 0,
+    "accuracy": 0.7733,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1_score": 0.0,
+    "roc_auc": 0.5,
+    "pr_auc": 0.2267,
+    "brier_score": 0.1753,
+    "confusion_matrix": {
+      "true_positive": 0,
+      "true_negative": 58,
+      "false_positive": 0,
+      "false_negative": 17
+    }
+  },
+  "training_timestamp": "2026-09-20T09:49:51.314687+00:00",
+  "random_seed": 42,
+  "limitations": [
+    "Linear decision boundary; cannot capture complex non-linear hydrodynamic interactions.",
+    "Standardized feature coefficients assume additive effects in log-odds.",
+    "Dataset is based on scenario observations; real-world field validation required before operational deployment.",
+    "Model uncertainty is not formally estimated; raw logistic probabilities reported.",
+    "Does NOT decide evacuation priority or autonomous road/hospital closures."
+  ]
+}
