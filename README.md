@@ -127,11 +127,11 @@ NEXUS/
 
 ## 7. Implementation Roadmap (Phases 01–33)
 
-- **Phase 01: Repository Initialization** *(Completed)*
-- **Phase 02: Environment + Docker** *(Completed)*
-- **Phase 03: PostgreSQL + PostGIS** *(Completed)*
-- **Phase 04: Data Contracts + Provenance** *(Completed)*
-- **Phase 05: OSM Road Graph** *(Completed)*
+- **Phase 01: Repository Initialization** 
+- **Phase 02: Environment + Docker** 
+- **Phase 03: PostgreSQL + PostGIS** 
+- **Phase 04: Data Contracts + Provenance** 
+- **Phase 05: OSM Road Graph** 
 - **Phase 06: Geospatial Engine**
 - **Phase 07: Emergency Routing**
 - **Phase 08: Dynamic Rerouting**
